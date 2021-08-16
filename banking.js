@@ -24,15 +24,11 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     const newDepositAmount = getInputValue('deposit-input');
     const previousDepositAmount = getPreviousAmount('deposit-total');
     getAndSetTotalAmount(newDepositAmount, previousDepositAmount, 'deposit-total');
-    //const totalDepositAmount = getAndSetTotalAmount(newDepositAmount, previousDepositAmount, 'deposit-total');
-    //document.getElementById('deposit-total').innerText = totalDepositAmount;
 
     //update account balance
-    const balanceTotal = document.getElementById('balance-total');
-    const balanceTotalText = balanceTotal.innerText;
-    const previousBalanceTotal = parseFloat(balanceTotalText);
+    const previousBalanceTotal = getPreviousAmount('balance-total');
     const newBalanceTotal = previousBalanceTotal + newDepositAmount;
-    balanceTotal.innerText = newBalanceTotal;
+    document.getElementById('balance-total').innerText = newBalanceTotal;
     //clear the deposit input field
 });
 document.getElementById('withdraw-button').addEventListener('click', function () {
@@ -40,13 +36,9 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     const withdrawInputNum = getInputValue('withdraw-input');
     const withdrawTotalNum = getPreviousAmount('withdraw-total');
     getAndSetTotalAmount(withdrawInputNum, withdrawTotalNum, 'withdraw-total');
-    //const newTotalWithdraw = getAndSetTotalAmount(withdrawInputNum, withdrawTotalNum, 'withdraw-total');
-    //document.getElementById('withdraw-total').innerText = newTotalWithdraw;
 
     //reduce balance
-    const previousBalanceTotal = document.getElementById('balance-total');
-    const balanceTotalText = previousBalanceTotal.innerText;
-    const balanceTotalNumber = parseFloat(balanceTotalText);
+    const balanceTotalNumber = getPreviousAmount('balance-total');
     const newBalanceTotal = balanceTotalNumber - withdrawInputNum;
-    previousBalanceTotal.innerText = newBalanceTotal;
+    document.getElementById('balance-total').innerText = newBalanceTotal;
 });
