@@ -28,14 +28,18 @@ function updateBalance(newAmountEdit, isAdd) {
 document.getElementById('deposit-button').addEventListener('click', function () {
     //get the amount deposited
     const newDepositAmount = getInputValue('deposit-input');
-    getPreviousAmount('deposit-total', newDepositAmount);
-    //update account balance
-    updateBalance(newDepositAmount, true);
+    if (newDepositAmount > 0) {
+        getPreviousAmount('deposit-total', newDepositAmount);
+        //update account balance
+        updateBalance(newDepositAmount, true);
+    }
 });
 document.getElementById('withdraw-button').addEventListener('click', function () {
     //get the withdraw amount
     const withdrawInputNum = getInputValue('withdraw-input');
-    getPreviousAmount('withdraw-total', withdrawInputNum);
-    //reduce balance
-    updateBalance(withdrawInputNum, false);
+    if (withdrawInputNum > 0) {
+        getPreviousAmount('withdraw-total', withdrawInputNum);
+        //reduce balance
+        updateBalance(withdrawInputNum, false);
+    }
 });
