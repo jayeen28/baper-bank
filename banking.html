@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind stylesheet cdn -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Banking page</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-5">lets get some <span class="text-purple-600">Mooooooney</span></h1>
+    </header>
+    <main class="w-3/4 mx-auto">
+        <!-- Balance and Transaction -->
+        <section>
+            <div class="grid grid-cols-3 gap-4 mt-10 text-white">
+                <div class="bg-blue-300 p-10 rounded">
+                    <h3 class="text-3xl">Total deposite</h3>
+                    <h4 class="text-4xl">$<span id="deposit-total">00</span> </h4>
+                </div>
+                <div class="bg-green-300 p-10 rounded">
+                    <h3 class="text-3xl">Total withdraw</h3>
+                    <h4 class="text-4xl">$<span id="withdraw-total">00</span></h4>
+                </div>
+                <div class="bg-yellow-300 p-10 rounded">
+                    <h3 class="text-3xl">Total Balance</h3>
+                    <h4 class="text-4xl">$<span id="balance-total">00</span></h4>
+                </div>
+            </div>
+        </section>
+        <!-- Deposite and Withdraw -->
+        <section class="m-10">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-red-100 p-8 rounded">
+                    <h3 class="text-3xl">Deposit</h3>
+                    <div>
+                        <div>
+                            <input id="deposit-input" name="deposit" type="number" required
+                                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="$ amount you want to deposit">
+                        </div>
+                        <div>
+                            <button id="deposit-button" type="submit"
+                                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Deposit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-purple-100 p-8 rounded">
+                    <h3 class="text-3xl">Withdraw</h3>
+                    <div>
+                        <div>
+                            <input id="withdraw-input" name="deposit" type="number" required
+                                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="$ amount you want to withdraw">
+                        </div>
+                        <div>
+                            <button id="withdraw-button" type="submit"
+                                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Withdraw
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="banking.js"></script>
+</body>
+
+</html>
