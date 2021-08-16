@@ -7,7 +7,7 @@ function getInputValue(inputId) {
     input.value = '';
     return inputNumber;
 }
-function getTotal(total) {
+function getPreviousAmount(total) {
     const previousTotal = document.getElementById(total);
     const previousTotalText = previousTotal.innerText;
     const previousTotalNumber = parseFloat(previousTotalText);
@@ -18,7 +18,7 @@ function getTotal(total) {
 document.getElementById('deposit-button').addEventListener('click', function () {
     //get the amount deposited
     const newDepositAmount = getInputValue('deposit-input');
-    const previousDepositAmount = getTotal('deposit-total');
+    const previousDepositAmount = getPreviousAmount('deposit-total');
     const totalDepositAmount = previousDepositAmount + newDepositAmount;
     document.getElementById('deposit-total').innerText = totalDepositAmount;
 
@@ -33,7 +33,7 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 document.getElementById('withdraw-button').addEventListener('click', function () {
     //get the withdraw amount
     const withdrawInputNum = getInputValue('withdraw-input');
-    const withdrawTotalNum = getTotal('withdraw-total');
+    const withdrawTotalNum = getPreviousAmount('withdraw-total');
     const newTotalWithdraw = withdrawInputNum + withdrawTotalNum;
     document.getElementById('withdraw-total').innerText = newTotalWithdraw;
 
