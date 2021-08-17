@@ -1,5 +1,4 @@
 //function building section
-
 function getInputValue(inputId) {
     const input = document.getElementById(inputId);
     const inputText = input.value;
@@ -14,10 +13,15 @@ function getPreviousAmount(total, inputAmount) {
     previousTotal.innerText = previousTotalNumber + inputAmount;
     return previousTotalNumber;
 }
-function updateBalance(newAmountEdit, isAdd) {
+function getCurrentBalance() {
     const balanceAmount = document.getElementById('balance-total');
     const balanceAmountText = balanceAmount.innerText;
     const balanceAmountNum = parseFloat(balanceAmountText);
+    return balanceAmountNum;
+}
+function updateBalance(newAmountEdit, isAdd) {
+    const balanceAmount = document.getElementById('balance-total');
+    const balanceAmountNum = getCurrentBalance();
     if (isAdd == true) {
         balanceAmount.innerText = balanceAmountNum + newAmountEdit;
     }
@@ -37,9 +41,11 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 document.getElementById('withdraw-button').addEventListener('click', function () {
     //get the withdraw amount
     const withdrawInputNum = getInputValue('withdraw-input');
-    if (withdrawInputNum > 0) {
+    const currentBalance = getCurrentBalance();
+    if (withdrawInputNum > 0 && withdrawInputNum <= currentBalance) {
         getPreviousAmount('withdraw-total', withdrawInputNum);
         //reduce balance
         updateBalance(withdrawInputNum, false);
-    }
+    };
+    console.log(getCurrentBalance());
 });
