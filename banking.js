@@ -36,6 +36,8 @@ document.getElementById('deposit-button').addEventListener('click', function () 
         getPreviousAmount('deposit-total', newDepositAmount);
         //update account balance
         updateBalance(newDepositAmount, true);
+        const secondHead = document.getElementById('second-head');
+        secondHead.style.display = 'none';
     }
 });
 document.getElementById('withdraw-button').addEventListener('click', function () {
@@ -46,6 +48,9 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
         getPreviousAmount('withdraw-total', withdrawInputNum);
         //reduce balance
         updateBalance(withdrawInputNum, false);
-    };
-    console.log(getCurrentBalance());
+    }
+    else {
+        const secondHead = document.getElementById('second-head');
+        secondHead.style.display = 'block';
+    }
 });
