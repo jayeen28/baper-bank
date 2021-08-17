@@ -39,10 +39,11 @@ document.getElementById('deposit-button').addEventListener('click', function () 
         secondHead.style.display = 'none';
     }
 });
+//withdraw
 document.getElementById('withdraw-button').addEventListener('click', function () {
     const withdrawInputNum = getInputValue('withdraw-input');
     const currentBalance = getCurrentBalance();
-    if (withdrawInputNum > 0 && withdrawInputNum <= currentBalance) {
+    if (withdrawInputNum >= 0 && withdrawInputNum <= currentBalance) {
         getPreviousAmount('withdraw-total', withdrawInputNum);
         updateBalance(withdrawInputNum, false);
     }
