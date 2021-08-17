@@ -1,4 +1,4 @@
-//function building section
+//functions
 function getInputValue(inputId) {
     const input = document.getElementById(inputId);
     const inputText = input.value;
@@ -29,24 +29,21 @@ function updateBalance(newAmountEdit, isAdd) {
         balanceAmount.innerText = balanceAmountNum - newAmountEdit;
     }
 }
+//event handelers
 document.getElementById('deposit-button').addEventListener('click', function () {
-    //get the amount deposited
     const newDepositAmount = getInputValue('deposit-input');
     if (newDepositAmount > 0) {
         getPreviousAmount('deposit-total', newDepositAmount);
-        //update account balance
         updateBalance(newDepositAmount, true);
         const secondHead = document.getElementById('second-head');
         secondHead.style.display = 'none';
     }
 });
 document.getElementById('withdraw-button').addEventListener('click', function () {
-    //get the withdraw amount
     const withdrawInputNum = getInputValue('withdraw-input');
     const currentBalance = getCurrentBalance();
     if (withdrawInputNum > 0 && withdrawInputNum <= currentBalance) {
         getPreviousAmount('withdraw-total', withdrawInputNum);
-        //reduce balance
         updateBalance(withdrawInputNum, false);
     }
     else {
